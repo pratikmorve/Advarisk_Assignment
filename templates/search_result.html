@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="static/stylesheet.css" />
+    <title>Search Results</title>
+  </head>
+  <body>
+    <h1>Search Results</h1>
+    <ul>
+      {% for result in search_results %}
+      <li>
+        <h2>{{ result.title }}</h2>
+        <p><strong>Author:</strong> {{ result.author }}</p>
+        <p><strong>Description:</strong> {{ result.description }}</p>
+        <p><strong>Published At:</strong> {{ result.publishedAt }}</p>
+        <p><strong>Source:</strong> {{ result.source.name }}</p>
+        <p><strong>Content:</strong> {{ result.content }}</p>
+        <a href="{{ result.url }}" target="_blank" id="link">Read more</a>
+        <br />
+        <img
+          src="{{ result.urlToImage }}"
+          alt="{{ result.title }}"
+          width="300"
+        />
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+  </body>
+</html>

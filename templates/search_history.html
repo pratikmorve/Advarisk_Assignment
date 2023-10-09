@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="static/stylesheet.css" />
+    <title>Search History</title>
+  </head>
+  <body>
+    <h1>Search History</h1>
+    <ul class="nobull">
+      {% for term in search_history %}
+      <li><a href="{{ url_for('search', keyword=term) }}">{{ term }}</a></li>
+      <br>
+      <br>
+      {% endfor %}
+    </ul>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+  </body>
+</html>
+
